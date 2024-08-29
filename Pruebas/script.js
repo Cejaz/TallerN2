@@ -109,3 +109,39 @@ confirmDate.addEventListener('click', () => {
         }
     }
 });
+
+// Prevenir la reserva si ya existe una
+document.addEventListener('DOMContentLoaded', () => {
+    const reservas = JSON.parse(localStorage.getItem('reservas')) || {};
+
+    roomSelect.addEventListener('change', () => {
+        const selectedRoomValue = roomSelect.value;
+        if (reservas[selectedRoomValue]) {
+            for (const [fecha, usuario] of Object.entries(reservas[selectedRoomValue])) {
+                if (usuario === localStorage.getItem('usuarioLogueado')) {
+                    dateInput.value = fecha;
+                    break;
+                }
+            }
+        } else {
+            dateInput.value = '';
+        }
+    });
+
+    roomSelect.dispatchEvent(new Event('change'));
+});
+
+// Lógica del checkout
+document.addEventListener('DOMContentLoaded', function() {
+    const roomName = localStorage.getItem('selectedRoom');
+    const selectedDate = localStorage.getItem('selectedDate');
+    const priceValue = localStorage.getItem('totalPrice');
+
+    document.getElementById('room-name').textContent = roomName;
+    document.getElementById('selected-date').textContent = selectedDate;
+    document.getElementById('price-value').textContent = priceValue;
+});
+
+document.getElementById('pay-button').addEventListener('click', function() {
+    alert('Redirigiendo a la pasarela de pago...');
+});
