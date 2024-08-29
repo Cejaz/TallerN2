@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Ease SPA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login View -->
+        <div id="login-view" class="view active-view">
+            <div class="logo">
+                <img src="logo.png" alt="Hotel Ease Logo">
+            </div>
+            <div class="login-form">
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Sign In</button>
+                </form>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+        </div>
+
+        <!-- Home View -->
+        <div id="home-view" class="view">
+            <header class="header">
+                <h1 id="greeting"></h1>
+            </header>
+
+            <section class="reservations">
+                <h2>Reservas</h2>
+
+                <!-- Selector de habitación -->
+                <div class="room-selection">
+                    <label for="roomSelect">Seleccione una habitación:</label>
+                    <select id="roomSelect">
+                        <option value="Habitación 1">Habitación 1</option>
+                        <option value="Habitación 2">Habitación 2</option>
+                        <option value="Habitación 3">Habitación 3</option>
+                    </select>
+                </div>
+
+                <!-- Sección de reserva con calendario -->
+                <div class="reservation-item">
+                    <div class="reservation-image"></div>
+                    <p>Habitación seleccionada: <span id="selectedRoom">Habitación 1</span></p>
+                    <div class="date-selection">
+                        <label for="date">Fecha:</label>
+                        <input type="text" id="dateInput" placeholder="MM/DD/YYYY" readonly>
+                        <button id="openCalendar" class="calendar-button">📅</button>
+                    </div>
+                    <div id="calendarContainer" class="calendar-hidden">
+                        <input type="date" id="calendar">
+                        <button id="confirmDate" class="confirm-button">OK</button>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <button class="footer-button" data-target="home-view">
+                    <img src="home-icon.png" alt="Home Icon">
+                </button>
+                <button class="footer-button" data-target="checkout-view">
+                    <img src="document-icon.png" alt="Document Icon">
+                </button>
+                <button class="footer-button" data-target="home-view">
+                    <img src="grid-icon.png" alt="Grid Icon">
+                </button>
+            </footer>
+        </div>
+
+        <!-- Checkout View -->
+        <div id="checkout-view" class="view">
+            <h1>Resumen de Reserva</h1>
+            <div class="room-details">
+                <h2>Habitación Seleccionada</h2>
+                <p id="room-name">Nombre de la Habitación</p>
+                <p id="room-date">Fecha: <span id="selected-date"></span></p>
+                <p id="total-price">Precio Total: $<span id="price-value">0</span></p>
+            </div>
+            <button id="pay-button">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
