@@ -386,6 +386,32 @@ button:hover {
 .reserve-button:hover {
     background-color: #0056b3;
 }
+.reservation-details {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.date-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.date-selection label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.date-input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: calc(50% - 20px);
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
