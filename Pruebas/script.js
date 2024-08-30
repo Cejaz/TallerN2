@@ -190,3 +190,16 @@ document.getElementById('pay-button').addEventListener('click', function() {
         alert('Hubo un error al procesar su solicitud. Por favor, intente nuevamente.');
     }
 });
+
+// Limpiar los campos de fecha al cargar la página
+
+
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+    
+    // Mostrar el saludo en la página de inicio
+    if (usuarioLogueado) {
+        document.getElementById('greeting').innerText = `Hola, ${usuarioLogueado}`;
+    } else {
+        document.getElementById('greeting').innerText = 'Hola, Invitado';
+    }
+});
