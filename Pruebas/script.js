@@ -192,7 +192,14 @@ document.getElementById('pay-button').addEventListener('click', function() {
 });
 
 // Limpiar los campos de fecha al cargar la página
-
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar todos los campos de fecha
+    const dateInputs = document.querySelectorAll('.date-input');
+    
+    // Establecer el valor de cada campo de fecha a vacío
+    dateInputs.forEach(input => {
+        input.value = '';
+    });
 
     const usuarioLogueado = localStorage.getItem('usuarioLogueado');
     
