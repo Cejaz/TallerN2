@@ -90,22 +90,63 @@ body {
     box-sizing: border-box;
 }
 
-button {
-    width: 90%;
-    padding: 12px;
-    background-color: #444;
-    color: white;
+/* Estilo unificado para todos los botones */
+button,
+.footer-button,
+#skip-to-checkout,
+.order-button,
+.reserve-button,
+.confirm-reserve-button,
+#checkout-view button {
+    width: 100%; /* Asegura que los botones usen el ancho completo disponible */
+    max-width: 360px; /* Establece un ancho máximo */
+    padding: 12px 20px; /* Establece un relleno estándar para todos los botones */
+    background-color: #444; /* Color de fondo sólido para visibilidad */
+    color: white; /* Color del texto en blanco */
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 5px; /* Bordes redondeados para consistencia */
+    font-size: 16px; /* Tamaño de fuente uniforme */
     cursor: pointer;
-    margin-top: 8px;
     text-align: center;
+    margin: 10px 0; /* Espacio consistente alrededor de los botones */
     transition: background-color 0.3s ease-in-out;
+    display: block; /* Se muestra como bloque */
 }
 
-button:hover {
-    background-color: #666;
+/* Hover para todos los botones */
+button:hover,
+.footer-button:hover,
+#skip-to-checkout:hover,
+.order-button:hover,
+.reserve-button:hover,
+.confirm-reserve-button:hover,
+#checkout-view button:hover {
+    background-color: #666; /* Color de fondo más claro en hover */
+}
+
+/* Estilo específico para algunos botones si es necesario */
+.order-button {
+    background-color: #0056b3;
+}
+
+.order-button:hover {
+    background-color: #004494;
+}
+
+.confirm-reserve-button {
+    background-color: #28a745;
+}
+
+.confirm-reserve-button:hover {
+    background-color: #218838;
+}
+
+#checkout-view button {
+    background-color: #007bff;
+}
+
+#checkout-view button:hover {
+    background-color: #0056b3;
 }
 
 .forgot-password {
@@ -175,55 +216,6 @@ button:hover {
     font-size: 14px;
 }
 
-.reserve-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #007bff;
-}
-
-.reserve-button:hover {
-    background-color: #0056b3;
-}
-
-.reservation-details {
-    margin-top: 20px;
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.date-selection {
-    margin-bottom: 15px;
-}
-
-.date-selection label {
-    display: block;
-    font-size: 14px;
-    color: #333;
-}
-
-.date-selection input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.total-price {
-    font-weight: bold;
-    color: #333;
-}
-
-.confirm-reserve-button {
-    background-color: #28a745;
-}
-
-.confirm-reserve-button:hover {
-    background-color: #218838;
-}
-
 /* Estilo del footer */
 .footer {
     display: flex;
@@ -237,25 +229,10 @@ button:hover {
     box-sizing: border-box;
 }
 
-.footer-button {
-    flex: 1;
-    margin: 10px 0;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out;
-}
-
-
 .footer-button img {
     width: 24px;
     height: 24px;
 }
-
 
 .pay-button {
     flex: 1;
@@ -287,7 +264,6 @@ button:hover {
     width: 100%;
     box-sizing: border-box;
 }
-
 
 .dish-item {
     display: flex;
@@ -321,17 +297,6 @@ button:hover {
     font-size: 14px;
 }
 
-.order-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #0056b3;
-}
-
-.order-button:hover {
-    background-color: #0056b3;
-}
-
 .footer-buttons {
     display: flex;
     justify-content: space-between;
@@ -352,14 +317,6 @@ button:hover {
     margin-bottom: 20px;
 }
 
-#checkout-view button {
-    background-color: #007bff;
-}
-
-#checkout-view button:hover {
-    background-color: #0056b3;
-}
-
 @media (max-width: 390px) {
     .container {
         padding: 0;
@@ -372,24 +329,4 @@ button:hover {
     button {
         font-size: 14px;
     }
-}
-
-
-#skip-to-checkout {
-    background-color: #444; /* Color de fondo sólido para que sea visible */
-    color: white; /* Color del texto en blanco */
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out;
-    display: block; /* Asegura que se muestre como un bloque */
-    margin: 10px 0;
-}
-
-#skip-to-checkout:hover {
-    background-color: #666; /* Color de fondo al pasar el ratón por encima */
-    color: white; /* Mantiene el color del texto */
 }
