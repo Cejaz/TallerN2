@@ -66,17 +66,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // Manejo de la lógica de las vistas home y checkout
 
 // Elementos del DOM
-const roomSelect = document.getElementById('roomSelect');
-const selectedRoom = document.getElementById('selectedRoom');
+const roomList = document.querySelector('.room-list');
 const dateInput = document.getElementById('dateInput');
 const openCalendar = document.getElementById('openCalendar');
 const calendarContainer = document.getElementById('calendarContainer');
 const calendar = document.getElementById('calendar');
 const confirmDate = document.getElementById('confirmDate');
 
-// Actualizar la habitación seleccionada al cambiar el selector
-roomSelect.addEventListener('change', () => {
-    selectedRoom.innerText = roomSelect.value;
+// Lógica para manejar la selección de habitaciones y reservas
+document.querySelectorAll('.reserve-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const roomName = this.getAttribute('data-room');
+        const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+        localStorage.setItem('selectedRoom', roomName);
+        
+        // Actualizar la vista para seleccionar la fecha
+        changeView('checkout-view');
+        document.getElementById('room-name').textContent = roomName;
+    });
 });
 
 // Mostrar el calendario al hacer clic en el botón de calendario
@@ -87,26 +94,59 @@ openCalendar.addEventListener('click', () => {
 // Confirmar la fecha seleccionada y guardarla en localStorage
 confirmDate.addEventListener('click', () => {
     const selectedDate = calendar.value;
-    const selectedRoomValue = roomSelect.value;
+    const selectedRoom = localStorage.getItem('selectedRoom');
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+    const reservas = JSON.parse(localStorage.getItem('reservas')) || {};
 
     if (selectedDate) {
-        const reservas = JSON.parse(localStorage.getItem('reservas')) || {};
-
-        if (reservas[selectedRoomValue] && reservas[selectedRoomValue][selectedDate]) {
+        if (reservas[selectedRoom] && reservas[selectedRoom][selectedDate]) {
             alert('Esta fecha ya está reservada.');
         } else {
-            if (!reservas[selectedRoomValue]) {
-                reservas[selectedRoomValue] = {};
+            if (!reservas[selectedRoom]) {
+                reservas[selectedRoom] = {};
             }
-            reservas[selectedRoomValue][selectedDate] = localStorage.getItem('usuarioLogueado');
+            reservas[selectedRoom][selectedDate] = usuarioLogueado;
             localStorage.setItem('reservas', JSON.stringify(reservas));
-            dateInput.value = selectedDate;
+            localStorage.setItem('selectedDate', selectedDate);
             alert('Reserva guardada exitosamente.');
             calendarContainer.classList.add('calendar-hidden');
 
-            // Cambiar a la vista de checkout
-            changeView('checkout-view');
+            // Cambiar a la vista de pago
+            updateCheckoutView(selectedRoom, selectedDate);
         }
+    }
+});
+
+// Función para actualizar la vista de checkout
+function updateCheckoutView(roomName, selectedDate) {
+    const precios = {
+        "Habitación 1": 100,
+        "Habitación 2": 120,
+        "Habitación 3": 140,
+        "Habitación 4": 160,
+        "Habitación 5": 180
+    };
+    const priceValue = precios[roomName] || 0;
+
+    document.getElementById('room-name').textContent = roomName;
+    document.getElementById('selected-date').textContent = selectedDate;
+    document.getElementById('price-value').textContent = priceValue;
+
+    localStorage.setItem('totalPrice', priceValue);
+}
+
+// Redirigir a la pasarela de pago
+document.getElementById('pay-button').addEventListener('click', function() {
+    const selectedRoom = localStorage.getItem('selectedRoom');
+    const selectedDate = localStorage.getItem('selectedDate');
+    const priceValue = localStorage.getItem('totalPrice');
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+
+    if (selectedRoom && selectedDate && priceValue && usuarioLogueado) {
+        alert(`Usuario: ${usuarioLogueado}\nHabitación: ${selectedRoom}\nFecha: ${selectedDate}\nPrecio: $${priceValue}\nRedirigiendo a la pasarela de pago...`);
+        // Aquí se podría redirigir a una pasarela de pago real
+    } else {
+        alert('Hubo un error al procesar su solicitud. Por favor, intente nuevamente.');
     }
 });
 
@@ -114,8 +154,8 @@ confirmDate.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const reservas = JSON.parse(localStorage.getItem('reservas')) || {};
 
-    roomSelect.addEventListener('change', () => {
-        const selectedRoomValue = roomSelect.value;
+    roomList.addEventListener('click', () => {
+        const selectedRoomValue = localStorage.getItem('selectedRoom');
         if (reservas[selectedRoomValue]) {
             for (const [fecha, usuario] of Object.entries(reservas[selectedRoomValue])) {
                 if (usuario === localStorage.getItem('usuarioLogueado')) {
@@ -127,21 +167,4 @@ document.addEventListener('DOMContentLoaded', () => {
             dateInput.value = '';
         }
     });
-
-    roomSelect.dispatchEvent(new Event('change'));
-});
-
-// Lógica del checkout
-document.addEventListener('DOMContentLoaded', function() {
-    const roomName = localStorage.getItem('selectedRoom');
-    const selectedDate = localStorage.getItem('selectedDate');
-    const priceValue = localStorage.getItem('totalPrice');
-
-    document.getElementById('room-name').textContent = roomName;
-    document.getElementById('selected-date').textContent = selectedDate;
-    document.getElementById('price-value').textContent = priceValue;
-});
-
-document.getElementById('pay-button').addEventListener('click', function() {
-    alert('Redirigiendo a la pasarela de pago...');
 });
