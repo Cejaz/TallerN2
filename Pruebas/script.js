@@ -166,9 +166,9 @@ document.getElementById('skip-to-checkout').addEventListener('click', function()
 
 // Función para actualizar la vista de checkout
 function updateCheckoutView(roomName, checkInDate, checkOutDate, totalPrice) {
-    document.getElementById('room-name').textContent = roomName;
-    document.getElementById('room-date').textContent = `${checkInDate} - ${checkOutDate}`;
-    document.getElementById('price-value').textContent = totalPrice.toFixed(2);
+    document.getElementById('room-name').textContent = roomName || 'No seleccionado';
+    document.getElementById('room-date').textContent = `${checkInDate} - ${checkOutDate}` || 'Fechas no seleccionadas';
+    document.getElementById('price-value').textContent = totalPrice.toFixed(2) || '0.00';
 }
 
 // Redirigir a la pasarela de pago

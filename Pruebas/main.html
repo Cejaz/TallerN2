@@ -175,17 +175,23 @@
             </footer>
         </div>
 
-        <!-- Checkout View -->
-        <div id="checkout-view" class="view">
-            <h1>Resumen de Reserva</h1>
-            <div class="room-details">
-                <h2>Habitación Seleccionada</h2>
-                <p id="room-name">Nombre de la Habitación</p>
-                <p id="room-date">Fecha: <span id="selected-date"></span></p>
-                <p id="total-price">Precio Total: $<span id="price-value">0</span></p>
-            </div>
-            <button id="pay-button">Proceder al Pago</button>
-        </div>
+<!-- Checkout View -->
+<div id="checkout-view" class="view">
+    <h1>Resumen de Reserva</h1>
+    <div class="room-details">
+        <h2>Habitación Seleccionada</h2>
+        <p id="room-name">Nombre de la Habitación</p>
+        <p id="room-date">Fecha: <span id="selected-date"></span></p>
+        <p id="total-price">Precio Total: $<span id="price-value">0</span></p>
+    </div>
+    <button id="pay-button">Proceder al Pago</button>
+
+    <!-- Botón para regresar a la vista de inicio -->
+    <button class="footer-button" data-target="home-view">
+        <img src="img/home_icon.png" alt="Home Icon"> Regresar a Inicio
+    </button>
+</div>
+
 
         <!-- Delivery View -->
         <div id="delivery-view" class="view">
