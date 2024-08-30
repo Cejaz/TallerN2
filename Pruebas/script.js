@@ -77,14 +77,29 @@ document.querySelectorAll('.reserve-button').forEach(button => {
         // Ocultar el botón de reservar para evitar múltiples expansiones
         this.style.display = 'none';
 
-        const checkInDateInput = reservationDetails.querySelector('#checkInDate');
-        const checkOutDateInput = reservationDetails.querySelector('#checkOutDate');
+        const checkInDateInput = reservationDetails.querySelector('.date-input[id="checkInDate"]');
+        const checkOutDateInput = reservationDetails.querySelector('.date-input[id="checkOutDate"]');
         const totalPriceElement = reservationDetails.querySelector('.total-price');
         const confirmReserveButton = reservationDetails.querySelector('.confirm-reserve-button');
 
         // Calcular el costo total al seleccionar las fechas
         checkInDateInput.addEventListener('change', calculateTotalPrice);
         checkOutDateInput.addEventListener('change', calculateTotalPrice);
+
+        function calculateTotalPrice() {
+            const checkInDate = new Date(checkInDateInput.value);
+            const checkOutDate = new Date(checkOutDateInput.value);
+            const pricePerNight = parseFloat(roomItem.querySelector('.room-info p:nth-child(2)').textContent.split('$')[1]);
+
+            if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
+                const timeDiff = checkOutDate - checkInDate;
+                const daysDiff = timeDiff / (1000 * 3600 * 24); // Convertir de milisegundos a días
+                const totalPrice = daysDiff * pricePerNight;
+                totalPriceElement.textContent = totalPrice.toFixed(2);
+            } else {
+                totalPriceElement.textContent = '0';
+            }
+        }
 
         // Confirmar reserva y pasar a la selección de comidas
         confirmReserveButton.addEventListener('click', function() {
@@ -107,21 +122,6 @@ document.querySelectorAll('.reserve-button').forEach(button => {
             // Cambiar a la vista de comidas
             changeView('delivery-view');
         });
-
-        function calculateTotalPrice() {
-            const checkInDate = new Date(checkInDateInput.value);
-            const checkOutDate = new Date(checkOutDateInput.value);
-            const pricePerNight = parseFloat(roomItem.querySelector('.room-info p:nth-child(3)').textContent.split('$')[1]);
-
-            if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
-                const timeDiff = checkOutDate - checkInDate;
-                const daysDiff = timeDiff / (1000 * 3600 * 24); // Convertir de milisegundos a días
-                const totalPrice = daysDiff * pricePerNight;
-                totalPriceElement.textContent = totalPrice.toFixed(2);
-            } else {
-                totalPriceElement.textContent = '0';
-            }
-        }
     });
 });
 
