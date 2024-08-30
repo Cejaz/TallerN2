@@ -32,7 +32,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    margin-bottom: 80px; /* Agrega espacio inferior para separar del footer */
+    margin-bottom: 80px;
 }
 
 .active-view {
@@ -54,14 +54,14 @@ body {
 
 .logo img {
     width: 70%;
-    max-width: 250px;
+    max-width: 200px; /* Ajusta el tamaño máximo de la imagen para mejor proporción */
     height: auto;
 }
 
 .login-form {
     width: 100%;
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
@@ -71,7 +71,7 @@ body {
 }
 
 .input-group {
-    margin-bottom: 12px;
+    margin-bottom: 15px; /* Aumenta el espacio entre los campos de entrada */
     width: 100%;
     text-align: left;
 }
@@ -79,26 +79,21 @@ body {
 .input-group label {
     font-size: 14px;
     color: #333;
+    margin-bottom: 5px; /* Añade espacio debajo de la etiqueta */
+    display: block;
 }
 
 .input-group input {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
     box-sizing: border-box;
+    background-color: #fff; /* Color de fondo blanco para mayor claridad */
 }
 
-/* Estilo unificado para todos los botones */
-button,
-.footer-button,
-#skip-to-checkout,
-.order-button,
-.reserve-button,
-.confirm-reserve-button,
-#checkout-view button {
+button {
     width: 100%;
     max-width: 360px;
     padding: 12px 20px;
@@ -108,47 +103,13 @@ button,
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 15px; /* Añade un margen superior para separación */
     text-align: center;
-    margin: 10px 0;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-    display: block;
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* Hover para todos los botones */
-button:hover,
-.footer-button:hover,
-#skip-to-checkout:hover,
-.order-button:hover,
-.reserve-button:hover,
-.confirm-reserve-button:hover,
-#checkout-view button:hover {
+button:hover {
     background-color: #666;
-    transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
-}
-
-/* Estilo específico para algunos botones si es necesario */
-.order-button {
-    background-color: #0056b3;
-}
-
-.order-button:hover {
-    background-color: #004494;
-}
-
-.confirm-reserve-button {
-    background-color: #28a745;
-}
-
-.confirm-reserve-button:hover {
-    background-color: #218838;
-}
-
-#checkout-view button {
-    background-color: #007bff;
-}
-
-#checkout-view button:hover {
-    background-color: #0056b3;
 }
 
 .forgot-password {
@@ -157,12 +118,13 @@ button:hover,
     font-size: 12px;
     color: #555;
     text-decoration: none;
-    text-align: right;
+    text-align: center; /* Centra el texto del enlace */
 }
 
 .forgot-password:hover {
     color: #333;
 }
+
 
 /* Estilo de la sección de reservas */
 .reservations {
