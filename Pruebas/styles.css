@@ -373,3 +373,23 @@ button:hover {
         font-size: 14px;
     }
 }
+
+
+#skip-to-checkout {
+    background-color: #444; /* Color de fondo sólido para que sea visible */
+    color: white; /* Color del texto en blanco */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    display: block; /* Asegura que se muestre como un bloque */
+    margin: 10px 0;
+}
+
+#skip-to-checkout:hover {
+    background-color: #666; /* Color de fondo al pasar el ratón por encima */
+    color: white; /* Mantiene el color del texto */
+}
