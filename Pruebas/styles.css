@@ -233,7 +233,22 @@ button:hover,
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para profundidad */
 }
 
-
+/* Estilo mejorado para los botones del footer */
+.footer-button {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px; /* Bordes más redondeados */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    margin: 0 5px; /* Margen entre los botones */
+}
 
 .footer-button:hover {
     background-color: #666;
