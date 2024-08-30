@@ -7,8 +7,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 0 15px;
+    padding: 0;
     box-sizing: border-box;
+    overflow: hidden; /* Elimina cualquier scroll del body */
 }
 
 .container {
@@ -17,10 +18,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 15px;
+    justify-content: center; /* Centra verticalmente */
+    padding: 0;
+    overflow-y: auto; /* Añade scroll solo vertical */
+    max-height: 90vh; /* Limita la altura máxima del contenedor */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    margin: 0 auto; /* Centra horizontalmente */
 }
 
-/* Estilos de las vistas con borde */
+/* Estilos de las vistas */
 .view {
     display: none;
     opacity: 0;
@@ -30,6 +36,10 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px; /* Limita el ancho máximo para evitar scroll lateral */
+    box-sizing: border-box;
+    margin: 0px auto; /* Centra las vistas dentro del contenedor */
 }
 
 .active-view {
@@ -50,21 +60,23 @@ body {
 }
 
 .logo img {
-    width: 70%;
-    max-width: 250px;
+    width: 60%;
+    max-width: 150px;
     height: auto;
+    border-radius: 50%;
 }
 
 .login-form {
     width: 100%;
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .input-group {
@@ -111,7 +123,7 @@ button:hover {
     font-size: 12px;
     color: #555;
     text-decoration: none;
-    text-align: left;
+    text-align: center;
 }
 
 .forgot-password:hover {
@@ -120,7 +132,7 @@ button:hover {
 
 /* Estilos de la vista Home */
 .header {
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -248,6 +260,8 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    padding: 10px 0;
+    max-width: 100%;
 }
 
 .dish-item {
@@ -327,23 +341,4 @@ button:hover {
 }
 
 .footer-button:hover {
-    background-color: #666666;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .dishes-section {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .dish-item {
-        width: 100%;
-    }
-
-    .footer-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-}
+    background-color: #666
