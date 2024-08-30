@@ -50,22 +50,23 @@
                     <p>Precio: $100/noche</p>
                     <button class="reserve-button" data-room="Habitación 1">Reservar</button>
                 </div>
-            </div>
-
-            <div class="room-item">
-                <div class="room-image">
-                    <img src="img/room2.jpg" alt="Habitación 2">
+                <!-- Sección de reserva (inicialmente oculta) -->
+                <div class="reservation-details" style="display: none;">
+                    <div class="date-selection">
+                        <label for="checkInDate">Fecha de entrada:</label>
+                        <input type="date" id="checkInDate" class="date-input">
+                    </div>
+                    <div class="date-selection">
+                        <label for="checkOutDate">Fecha de salida:</label>
+                        <input type="date" id="checkOutDate" class="date-input">
+                    </div>
+                    <p>Total: $<span class="total-price">0</span></p>
+                    <button class="confirm-reserve-button">Confirmar Reserva</button>
                 </div>
-                <div class="room-info">
-                    <h3>Habitación 2</h3>
-                    <p>Descripción breve de la Habitación 2.</p>
-                    <p>Precio: $120/noche</p>
-                    <button class="reserve-button" data-room="Habitación 2">Reservar</button>
-                </div>
             </div>
-
             <!-- Repite para más habitaciones -->
         </div>
+        
     </section>
     
     <footer class="footer">
