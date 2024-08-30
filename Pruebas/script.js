@@ -63,87 +63,85 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Manejo de la lógica de las vistas home y checkout
-
-// Elementos del DOM
+// Elementos del DOM para manejar la lógica de las vistas home y checkout
 const roomList = document.querySelector('.room-list');
-const dateInput = document.getElementById('dateInput');
-const openCalendar = document.getElementById('openCalendar');
-const calendarContainer = document.getElementById('calendarContainer');
-const calendar = document.getElementById('calendar');
-const confirmDate = document.getElementById('confirmDate');
 
 // Lógica para manejar la selección de habitaciones y reservas
 document.querySelectorAll('.reserve-button').forEach(button => {
     button.addEventListener('click', function() {
-        const roomName = this.getAttribute('data-room');
-        const usuarioLogueado = localStorage.getItem('usuarioLogueado');
-        localStorage.setItem('selectedRoom', roomName);
-        
-        // Actualizar la vista para seleccionar la fecha
-        changeView('checkout-view');
-        document.getElementById('room-name').textContent = roomName;
+        const roomItem = this.closest('.room-item');
+        const reservationDetails = roomItem.querySelector('.reservation-details');
+        reservationDetails.style.display = 'block'; // Mostrar la sección de detalles
+
+        // Ocultar el botón de reservar para evitar múltiples expansiones
+        this.style.display = 'none';
+
+        const checkInDateInput = reservationDetails.querySelector('#checkInDate');
+        const checkOutDateInput = reservationDetails.querySelector('#checkOutDate');
+        const totalPriceElement = reservationDetails.querySelector('.total-price');
+        const confirmReserveButton = reservationDetails.querySelector('.confirm-reserve-button');
+
+        // Calcular el costo total al seleccionar las fechas
+        checkInDateInput.addEventListener('change', calculateTotalPrice);
+        checkOutDateInput.addEventListener('change', calculateTotalPrice);
+
+        // Confirmar reserva y pasar al checkout
+        confirmReserveButton.addEventListener('click', function() {
+            const checkInDate = checkInDateInput.value;
+            const checkOutDate = checkOutDateInput.value;
+            if (!checkInDate || !checkOutDate) {
+                alert('Por favor, seleccione ambas fechas.');
+                return;
+            }
+
+            const totalPrice = parseFloat(totalPriceElement.textContent);
+            const roomName = button.getAttribute('data-room');
+
+            // Guardar los datos en localStorage
+            localStorage.setItem('selectedRoom', roomName);
+            localStorage.setItem('checkInDate', checkInDate);
+            localStorage.setItem('checkOutDate', checkOutDate);
+            localStorage.setItem('totalPrice', totalPrice);
+
+            // Cambiar a la vista de checkout
+            changeView('checkout-view');
+            updateCheckoutView(roomName, checkInDate, checkOutDate, totalPrice);
+        });
+
+        function calculateTotalPrice() {
+            const checkInDate = new Date(checkInDateInput.value);
+            const checkOutDate = new Date(checkOutDateInput.value);
+            const pricePerNight = parseFloat(roomItem.querySelector('.room-info p:nth-child(3)').textContent.split('$')[1]);
+
+            if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
+                const timeDiff = checkOutDate - checkInDate;
+                const daysDiff = timeDiff / (1000 * 3600 * 24); // Convertir de milisegundos a días
+                const totalPrice = daysDiff * pricePerNight;
+                totalPriceElement.textContent = totalPrice.toFixed(2);
+            } else {
+                totalPriceElement.textContent = '0';
+            }
+        }
     });
 });
 
-// Mostrar el calendario al hacer clic en el botón de calendario
-openCalendar.addEventListener('click', () => {
-    calendarContainer.classList.toggle('calendar-hidden');
-});
-
-// Confirmar la fecha seleccionada y guardarla en localStorage
-confirmDate.addEventListener('click', () => {
-    const selectedDate = calendar.value;
-    const selectedRoom = localStorage.getItem('selectedRoom');
-    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
-    const reservas = JSON.parse(localStorage.getItem('reservas')) || {};
-
-    if (selectedDate) {
-        if (reservas[selectedRoom] && reservas[selectedRoom][selectedDate]) {
-            alert('Esta fecha ya está reservada.');
-        } else {
-            if (!reservas[selectedRoom]) {
-                reservas[selectedRoom] = {};
-            }
-            reservas[selectedRoom][selectedDate] = usuarioLogueado;
-            localStorage.setItem('reservas', JSON.stringify(reservas));
-            localStorage.setItem('selectedDate', selectedDate);
-            alert('Reserva guardada exitosamente.');
-            calendarContainer.classList.add('calendar-hidden');
-
-            // Cambiar a la vista de pago
-            updateCheckoutView(selectedRoom, selectedDate);
-        }
-    }
-});
-
 // Función para actualizar la vista de checkout
-function updateCheckoutView(roomName, selectedDate) {
-    const precios = {
-        "Habitación 1": 100,
-        "Habitación 2": 120,
-        "Habitación 3": 140,
-        "Habitación 4": 160,
-        "Habitación 5": 180
-    };
-    const priceValue = precios[roomName] || 0;
-
+function updateCheckoutView(roomName, checkInDate, checkOutDate, totalPrice) {
     document.getElementById('room-name').textContent = roomName;
-    document.getElementById('selected-date').textContent = selectedDate;
-    document.getElementById('price-value').textContent = priceValue;
-
-    localStorage.setItem('totalPrice', priceValue);
+    document.getElementById('room-date').textContent = `${checkInDate} - ${checkOutDate}`;
+    document.getElementById('price-value').textContent = totalPrice.toFixed(2);
 }
 
 // Redirigir a la pasarela de pago
 document.getElementById('pay-button').addEventListener('click', function() {
     const selectedRoom = localStorage.getItem('selectedRoom');
-    const selectedDate = localStorage.getItem('selectedDate');
-    const priceValue = localStorage.getItem('totalPrice');
+    const checkInDate = localStorage.getItem('checkInDate');
+    const checkOutDate = localStorage.getItem('checkOutDate');
+    const totalPrice = localStorage.getItem('totalPrice');
     const usuarioLogueado = localStorage.getItem('usuarioLogueado');
 
-    if (selectedRoom && selectedDate && priceValue && usuarioLogueado) {
-        alert(`Usuario: ${usuarioLogueado}\nHabitación: ${selectedRoom}\nFecha: ${selectedDate}\nPrecio: $${priceValue}\nRedirigiendo a la pasarela de pago...`);
+    if (selectedRoom && checkInDate && checkOutDate && totalPrice && usuarioLogueado) {
+        alert(`Usuario: ${usuarioLogueado}\nHabitación: ${selectedRoom}\nFechas: ${checkInDate} a ${checkOutDate}\nPrecio: $${totalPrice}\nRedirigiendo a la pasarela de pago...`);
         // Aquí se podría redirigir a una pasarela de pago real
     } else {
         alert('Hubo un error al procesar su solicitud. Por favor, intente nuevamente.');
