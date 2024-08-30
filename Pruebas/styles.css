@@ -239,11 +239,17 @@ button:hover {
 
 .footer-button {
     flex: 1;
-    margin: 0 5px;
-    background-color: transparent;
+    margin: 10px 0;
+    color: white;
+    padding: 10px;
     border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
     text-align: center;
+    transition: background-color 0.3s ease-in-out;
 }
+
 
 .footer-button img {
     width: 24px;
