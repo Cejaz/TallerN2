@@ -186,3 +186,111 @@ button:hover {
     width: 30px;
     height: 30px;
 }
+
+/* Delivery vista */
+
+/* Dishes Section */
+.dishes-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dish-item {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(45% - 10px);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dish-item:hover {
+    transform: translateY(-5px);
+}
+
+.dish-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #b0b0b0;
+}
+
+.dish-description {
+    padding: 15px;
+}
+
+.dish-description p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Order Button */
+.order-button {
+    background-color: #888888;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.order-button:hover {
+    background-color: #666666;
+}
+
+/* Footer Buttons */
+.footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+.footer-button {
+    background-color: #888888;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.footer-button img {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-button:hover {
+    background-color: #666666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dishes-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dish-item {
+        width: 100%;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
