@@ -29,59 +29,156 @@
             </div>
         </div>
 
-       <!-- Home View -->
-<div id="home-view" class="view">
-    <header class="header">
-        <h1 id="greeting"></h1>
-    </header>
+        <!-- Home View -->
+        <div id="home-view" class="view">
+            <header class="header">
+                <h1 id="greeting"></h1>
+            </header>
 
-    <section class="reservations">
-        <h2>Reservas</h2>
+            <section class="reservations">
+                <h2>Reservas</h2>
+                <!-- Lista de habitaciones con scroll vertical -->
+                <div class="room-list">
+                    <!-- Habitación 1 -->
+                    <div class="room-item">
+                        <div class="room-image">
+                            <img src="img/room1.jpg" alt="Habitación 1">
+                        </div>
+                        <div class="room-info">
+                            <h3>Habitación 1</h3>
+                            <p>Descripción breve de la Habitación 1.</p>
+                            <p>Precio: $100/noche</p>
+                            <button class="reserve-button" data-room="Habitación 1">Reservar</button>
+                        </div>
+                        <div class="reservation-details" style="display: none;">
+                            <div class="date-selection">
+                                <label for="checkInDate">Fecha de entrada:</label>
+                                <input type="date" id="checkInDate" class="date-input">
+                            </div>
+                            <div class="date-selection">
+                                <label for="checkOutDate">Fecha de salida:</label>
+                                <input type="date" id="checkOutDate" class="date-input">
+                            </div>
+                            <p>Total: $<span class="total-price">0</span></p>
+                            <button class="confirm-reserve-button">Confirmar Reserva</button>
+                        </div>
+                    </div>
 
-        <!-- Lista de habitaciones con scroll horizontal -->
-        <div class="room-list">
-            <div class="room-item">
-                <div class="room-image">
-                    <img src="img/room1.jpg" alt="Habitación 1">
-                </div>
-                <div class="room-info">
-                    <h3>Habitación 1</h3>
-                    <p>Descripción breve de la Habitación 1.</p>
-                    <p>Precio: $100/noche</p>
-                    <button class="reserve-button" data-room="Habitación 1">Reservar</button>
-                </div>
-                <!-- Sección de reserva (inicialmente oculta) -->
-                <div class="reservation-details" style="display: none;">
-                    <div class="date-selection">
-                        <label for="checkInDate">Fecha de entrada:</label>
-                        <input type="date" id="checkInDate" class="date-input">
+                    <!-- Habitación 2 -->
+                    <div class="room-item">
+                        <div class="room-image">
+                            <img src="img/room2.jpg" alt="Habitación 2">
+                        </div>
+                        <div class="room-info">
+                            <h3>Habitación 2</h3>
+                            <p>Descripción breve de la Habitación 2.</p>
+                            <p>Precio: $120/noche</p>
+                            <button class="reserve-button" data-room="Habitación 2">Reservar</button>
+                        </div>
+                        <div class="reservation-details" style="display: none;">
+                            <div class="date-selection">
+                                <label for="checkInDate">Fecha de entrada:</label>
+                                <input type="date" id="checkInDate" class="date-input">
+                            </div>
+                            <div class="date-selection">
+                                <label for="checkOutDate">Fecha de salida:</label>
+                                <input type="date" id="checkOutDate" class="date-input">
+                            </div>
+                            <p>Total: $<span class="total-price">0</span></p>
+                            <button class="confirm-reserve-button">Confirmar Reserva</button>
+                        </div>
                     </div>
-                    <div class="date-selection">
-                        <label for="checkOutDate">Fecha de salida:</label>
-                        <input type="date" id="checkOutDate" class="date-input">
+
+                    <!-- Habitación 3 -->
+                    <div class="room-item">
+                        <div class="room-image">
+                            <img src="img/room3.jpg" alt="Habitación 3">
+                        </div>
+                        <div class="room-info">
+                            <h3>Habitación 3</h3>
+                            <p>Descripción breve de la Habitación 3.</p>
+                            <p>Precio: $150/noche</p>
+                            <button class="reserve-button" data-room="Habitación 3">Reservar</button>
+                        </div>
+                        <div class="reservation-details" style="display: none;">
+                            <div class="date-selection">
+                                <label for="checkInDate">Fecha de entrada:</label>
+                                <input type="date" id="checkInDate" class="date-input">
+                            </div>
+                            <div class="date-selection">
+                                <label for="checkOutDate">Fecha de salida:</label>
+                                <input type="date" id="checkOutDate" class="date-input">
+                            </div>
+                            <p>Total: $<span class="total-price">0</span></p>
+                            <button class="confirm-reserve-button">Confirmar Reserva</button>
+                        </div>
                     </div>
-                    <p>Total: $<span class="total-price">0</span></p>
-                    <button class="confirm-reserve-button">Confirmar Reserva</button>
+
+                    <!-- Habitación 4 -->
+                    <div class="room-item">
+                        <div class="room-image">
+                            <img src="img/room4.jpg" alt="Habitación 4">
+                        </div>
+                        <div class="room-info">
+                            <h3>Habitación 4</h3>
+                            <p>Descripción breve de la Habitación 4.</p>
+                            <p>Precio: $180/noche</p>
+                            <button class="reserve-button" data-room="Habitación 4">Reservar</button>
+                        </div>
+                        <div class="reservation-details" style="display: none;">
+                            <div class="date-selection">
+                                <label for="checkInDate">Fecha de entrada:</label>
+                                <input type="date" id="checkInDate" class="date-input">
+                            </div>
+                            <div class="date-selection">
+                                <label for="checkOutDate">Fecha de salida:</label>
+                                <input type="date" id="checkOutDate" class="date-input">
+                            </div>
+                            <p>Total: $<span class="total-price">0</span></p>
+                            <button class="confirm-reserve-button">Confirmar Reserva</button>
+                        </div>
+                    </div>
+
+                    <!-- Habitación 5 -->
+                    <div class="room-item">
+                        <div class="room-image">
+                            <img src="img/room5.jpg" alt="Habitación 5">
+                        </div>
+                        <div class="room-info">
+                            <h3>Habitación 5</h3>
+                            <p>Descripción breve de la Habitación 5.</p>
+                            <p>Precio: $200/noche</p>
+                            <button class="reserve-button" data-room="Habitación 5">Reservar</button>
+                        </div>
+                        <div class="reservation-details" style="display: none;">
+                            <div class="date-selection">
+                                <label for="checkInDate">Fecha de entrada:</label>
+                                <input type="date" id="checkInDate" class="date-input">
+                            </div>
+                            <div class="date-selection">
+                                <label for="checkOutDate">Fecha de salida:</label>
+                                <input type="date" id="checkOutDate" class="date-input">
+                            </div>
+                            <p>Total: $<span class="total-price">0</span></p>
+                            <button class="confirm-reserve-button">Confirmar Reserva</button>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <!-- Repite para más habitaciones -->
+            </section>
+
+            <footer class="footer">
+                <button class="footer-button" data-target="home-view">
+                    <img src="img/home_icon.png" alt="Home Icon">
+                </button>
+                <button class="footer-button" data-target="delivery-view">
+                    <img src="img/serv_icon.png" alt="Service Icon">
+                </button>
+                <button class="footer-button" data-target="checkout-view">
+                    <img src="img/option_icon.png" alt="Option Icon">
+                </button>
+            </footer>
         </div>
-        
-    </section>
-    
-    <footer class="footer">
-        <button class="footer-button" data-target="home-view">
-            <img src="img/home_icon.png" alt="Home Icon">
-        </button>
-        <button class="footer-button" data-target="delivery-view">
-            <img src="img/serv_icon.png" alt="Service Icon">
-        </button>
-        <button class="footer-button" data-target="checkout-view">
-            <img src="img/option_icon.png" alt="Option Icon">
-        </button>
-    </footer>
-</div>
-
 
         <!-- Checkout View -->
         <div id="checkout-view" class="view">
@@ -94,96 +191,47 @@
             </div>
             <button id="pay-button">Proceder al Pago</button>
         </div>
+
+        <!-- Delivery View -->
+        <div id="delivery-view" class="view">
+            <header class="header">
+                <h1>Servicios a Domicilio</h1>
+            </header>
+
+            <!-- Sección de platos -->
+            <section class="dishes-section">
+                <div class="dish-item">
+                    <img src="img/dish1.jpg" alt="Plato 1" class="dish-image">
+                    <div class="dish-description">
+                        <h3>Curry japonés</h3>
+                        <p>Se suele acompañar de arroz y consiste en una mezcla de varias verduras, carne y una salsa muy especiada.</p>
+                        <p>Precio: $15</p>
+                        <button class="order-button">Ordenar</button>
+                    </div>
+                </div>
+                <div class="dish-item">
+                    <img src="img/dish2.jpg" alt="Plato 2" class="dish-image">
+                    <div class="dish-description">
+                        <h3>Picanha</h3>
+                        <p>Un corte de carne que proviene de la parte superior de la cadera del vacuno.</p>
+                        <p>Precio: $20</p>
+                        <button class="order-button">Ordenar</button>
+                    </div>
+                </div>
+                <!-- Agrega más platos según sea necesario -->
+                <div class="pay-button">
+                    <button id="skip-to-checkout" class="pay-button">
+                        Ir a Checkout
+                    </button>
+                    <button class="footer-buttons" data-target="home-view">
+                        <img src="img/home_icon.png" alt="Home Icon">
+                    </button>
+                </div>
+            </section>
+        </div>
     </div>
 
-    <!-- Delivery View -->
-<div id="delivery-view" class="view">
-    <div class="container">
-        <header class="header">
-            <h1>Servicios a Domicilio</h1>
-        </header>
-
-        <!-- Sección de platos -->
-        <section class="dishes-section">
-            <div class="dish-item">
-                <img src="img/dish1.jpg" alt="Plato 1" class="dish-image">
-                <div class="dish-description">
-                    <h3>Curry japones</h3>
-                    <p>Se suele acompañar de arroz y consiste en una mezcla de varias verduras, carne y una salsa muy especiada.</p>
-                    <p>Precio: $15</p>
-                    <button class="order-button">Ordenar</button>
-                </div>
-            </div>
-
-            <div class="dish-item">
-                <img src="img/dish2.jpg" alt="Plato 2" class="dish-image">
-                <div class="dish-description">
-                    <h3>Picanha</h3>
-                    <p>un corte de carne que proviene de la parte superior de la cadera del vacuno, a ambos lados de la espina dorsal.</p>
-                    <p>Precio: $20</p>
-                    <button class="order-button">Ordenar</button>
-                </div>
-            </div>
-
-            <div class="dish-item">
-                <img src="img/dish3.jpg" alt="Plato 3" class="dish-image">
-                <div class="dish-description">
-                    <h3>Almejas al Bulhão Pato</h3>
-                    <p>se cocina combinando almejas y una sabrosa salsa, hecha a base de aceite de oliva, ajo, zumo de limón, vino blanco y cilantro fresco.</p>
-                    <p>Precio: $18</p>
-                    <button class="order-button">Ordenar</button>
-                </div>
-            </div>
-
-            <div class="dish-item">
-                <img src="img/dish4.jpg" alt="Plato 4" class="dish-image">
-                <div class="dish-description">
-                    <h3>Tang bao</h3>
-                    <p>dumplings cocinados al vapor y rellenos de sopa.</p>
-                    <p>Precio: $22</p>
-                    <button class="order-button">Ordenar</button>
-                </div>
-            </div>
-
-            <div class="dish-item">
-                <img src="img/dish5.jpg" alt="Plato 5" class="dish-image">
-                <div class="dish-description">
-                    <h3>Ceviche mixto peruano</h3>
-                    <p>incluye camarones, calamares, pulpos, almejas o vieiras, a veces también mejillones o pequeños cangrejos.</p>
-                    <p>Precio: $25</p>
-                    <button class="order-button">Ordenar</button>
-                </div>
-            </div>
-
-            <div class="footer-buttons">
-                <button id="skip-to-checkout" class="footer-button">
-                    Ir a Checkout
-                </button>
-
-                <button class="footer-button" data-target="home-view">
-                    <img src="img/home_icon.png" alt="Home Icon">
-                </button>
-            </div>
-        </section>
-    </div>
-</div>
-
-
-<!-- Añadir script de JavaScript -->
-    <script>
-    // Seleccionar todos los botones "Ordenar"
-    const orderButtons = document.querySelectorAll('.order-button');
-
-    // Añadir un evento de clic a cada botón
-    orderButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            alert('Confirmación de pedido exitoso');
-        });
-        });
-        </script>
-
-     </div>
-
+    <!-- Añadir script de JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
