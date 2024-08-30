@@ -281,7 +281,13 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 400px; /* Limita la altura máxima de la sección */
+    overflow-y: auto; /* Activa el scroll vertical */
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 
 .dish-item {
     display: flex;
