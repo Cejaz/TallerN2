@@ -32,7 +32,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    margin-bottom: 80px;
+    margin-bottom: 20px; /* Reducir el margen inferior para un mejor espaciado */
 }
 
 .active-view {
@@ -42,10 +42,7 @@ body {
 
 .logo {
     width: 100%;
-    background-color: white;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
@@ -54,24 +51,21 @@ body {
 
 .logo img {
     width: 70%;
-    max-width: 200px; /* Ajusta el tamaño máximo de la imagen para mejor proporción */
+    max-width: 200px; /* Ajuste de tamaño máximo para mejor proporción */
     height: auto;
 }
 
 .login-form {
     width: 100%;
-    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
+    margin-top: 0; /* Elimina margen superior para mejorar el flujo */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .input-group {
-    margin-bottom: 15px; /* Aumenta el espacio entre los campos de entrada */
+    margin-bottom: 12px;
     width: 100%;
     text-align: left;
 }
@@ -79,7 +73,7 @@ body {
 .input-group label {
     font-size: 14px;
     color: #333;
-    margin-bottom: 5px; /* Añade espacio debajo de la etiqueta */
+    margin-bottom: 5px;
     display: block;
 }
 
@@ -90,7 +84,7 @@ body {
     border-radius: 5px;
     font-size: 14px;
     box-sizing: border-box;
-    background-color: #fff; /* Color de fondo blanco para mayor claridad */
+    background-color: #fff; /* Fondo blanco */
 }
 
 button {
@@ -103,7 +97,7 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 15px; /* Añade un margen superior para separación */
+    margin-top: 15px;
     text-align: center;
     transition: background-color 0.3s ease-in-out;
 }
@@ -114,16 +108,17 @@ button:hover {
 
 .forgot-password {
     display: block;
-    margin-top: 15px;
+    margin-top: 10px; /* Ajusta el margen superior para reducir espacio */
     font-size: 12px;
     color: #555;
     text-decoration: none;
-    text-align: center; /* Centra el texto del enlace */
+    text-align: center;
 }
 
 .forgot-password:hover {
     color: #333;
 }
+
 
 
 /* Estilo de la sección de reservas */
