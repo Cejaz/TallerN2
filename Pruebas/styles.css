@@ -32,6 +32,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
+    margin-bottom: 80px; /* Agrega espacio inferior para separar del footer */
 }
 
 .active-view {
@@ -98,19 +99,19 @@ button,
 .reserve-button,
 .confirm-reserve-button,
 #checkout-view button {
-    width: 100%; /* Asegura que los botones usen el ancho completo disponible */
-    max-width: 360px; /* Establece un ancho máximo */
-    padding: 12px 20px; /* Establece un relleno estándar para todos los botones */
-    background-color: #444; /* Color de fondo sólido para visibilidad */
-    color: white; /* Color del texto en blanco */
+    width: 100%;
+    max-width: 360px;
+    padding: 12px 20px;
+    background-color: #444;
+    color: white;
     border: none;
-    border-radius: 5px; /* Bordes redondeados para consistencia */
-    font-size: 16px; /* Tamaño de fuente uniforme */
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
     text-align: center;
-    margin: 10px 0; /* Espacio consistente alrededor de los botones */
-    transition: background-color 0.3s ease-in-out;
-    display: block; /* Se muestra como bloque */
+    margin: 10px 0;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    display: block;
 }
 
 /* Hover para todos los botones */
@@ -121,7 +122,8 @@ button:hover,
 .reserve-button:hover,
 .confirm-reserve-button:hover,
 #checkout-view button:hover {
-    background-color: #666; /* Color de fondo más claro en hover */
+    background-color: #666;
+    transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
 }
 
 /* Estilo específico para algunos botones si es necesario */
@@ -220,13 +222,22 @@ button:hover,
 .footer {
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 10px 20px;
     background-color: #333;
     position: fixed;
     bottom: 0;
     width: 100%;
     max-width: 390px;
     box-sizing: border-box;
+    border-top: 2px solid #444; /* Añade un borde superior */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para profundidad */
+}
+
+
+
+.footer-button:hover {
+    background-color: #666;
+    transform: scale(1.05); /* Efecto de agrandamiento */
 }
 
 .footer-button img {
@@ -258,8 +269,8 @@ button:hover,
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 400px; /* Limita la altura máxima de la sección */
-    overflow-y: auto; /* Activa el scroll vertical */
+    max-height: 400px;
+    overflow-y: auto;
     padding: 15px;
     width: 100%;
     box-sizing: border-box;
