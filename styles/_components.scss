@@ -1,0 +1,19 @@
+// _components.scss
+@import 'variables';
+
+button {
+    width: 90%;
+    padding: 8px;
+    background-color: $button-background;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: $font-size-small;
+    cursor: pointer;
+    margin-top: 8px;
+    text-align: center;
+
+    &:hover {
+        background-color: $button-hover-background;
+    }
+}

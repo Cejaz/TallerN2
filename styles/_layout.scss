@@ -1,0 +1,26 @@
+// _layout.scss
+@import 'variables';
+
+.view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    padding: 20px;
+    box-shadow: $box-shadow;
+
+    &.active-view {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid $border-color;
+    margin-top: 20px;
+}
